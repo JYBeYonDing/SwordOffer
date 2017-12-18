@@ -28,4 +28,30 @@ public class Offer31 {
         }
         return greatestSum;
     }
+
+    /**
+     * 应用动态规划法
+     * @param array
+     * @return
+     */
+    public int FindGreatestSumOfSubArray2(int[] array) {
+        if (array == null || array.length <= 0) {
+            return 0;
+        }
+
+        int curSum = 0;
+        int greatestSum = Integer.MIN_VALUE;
+        for(int i = 0 ;i<array.length ; i++) {
+            if (curSum < 0) {
+                curSum = array[i];
+            } else {
+                curSum += array[i];
+            }
+
+            if (curSum > greatestSum) {
+                greatestSum = curSum;
+            }
+        }
+        return greatestSum;
+    }
 }
